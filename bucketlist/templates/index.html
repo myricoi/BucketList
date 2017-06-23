@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>
+Bucketlist
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">      
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      
+
+
+
+</head>
+<body> 
+<div class="container">
+<h4 class="blue-text text-lighten-4">Bucketlist</h4>
+<div class="divider"></div>
+ <div class="card">
+ <div class="card-title>
+ <h4>Bucketlist</h4>
+ </div>
+    
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab orange-text"><a  href="#login">Log In</a></li>
+        <li class="tab orange-text"><a  {% if signup_response %} class="active" {% endif %} href="#signup">Sign UP</a></li>
+ 
+      </ul>
+    </div>
+	
+	<!--login and signUp -->
+    <div class="card-content grey lighten-4">
+     <div id="login">
+	  
+	 <div class="row">
+    <form class="col s12" action="http://localhost:5000/login" method="POST" >
+      
+	  
+	  <div class="row">
+	  <div class="input-field col s12">
+          <input id="username" type="text" class="validate" name="username" {% if response %} value="{{response['value1']}}" {% endif %}  {% if field_empty_response %} value="{{field_empty_response['value1']}}" {% endif %}>
+          <label for="username">username {% if response %} <span class="red-text">{{response['message']}}</span> {% endif %}  {% if field_empty_response %} <span class="red-text">{{field_empty_response['message']}}</span> {% endif %}</label>
+        </div>
+      </div>
+	  
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" name="password" {% if response %} value="{{response['value2']}}" {% endif %}>
+          <label for="password">Password  {% if field_empty_response %} <span class="red-text">{{field_empty_response['message']}}</span> {% endif %}  </label>
+        </div>
+		</div>
+		
+	 
+      
+	  
+	  
+	  <div class="row">
+        <div class="input-field col s12 m4 l4">
+          <input id="submit" type="submit" class="validate" value="Log In" name="submit">
+          
+        </div>
+      </div>
+
+      <p> </p>
+   
+    </form>
+  </div>
+ </div>	  
+	  
+	  
+	  
+ 
+	  
+	  
+      <div id="signup"><!--start of signUp tab -->
+	  
+	  
+	<div class="row">
+    <form class="col s12" action="http://localhost:5000/sign_up" method="POST">
+      <div class="row">
+        <div class="input-field col s6" >
+          <input id="first_name" type="text" class="validate" name="first_name" {% if signup_response %} value="{{values[0]}}" {% endif %}>
+          <label for="first_name">First Name {% if response_1 %} <span class="red-text"> *(Ensure field is filled)</span> {% endif %} {% if response_2 %} <span class="red-text"> *(Ensure no dots (.) in this field)</span> {% endif %} {% if response_3 %} <span class="red-text"> *(This field should not begin with a number)</span> {% endif %}</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate" name="last_name" {% if signup_response %} value="{{values[1]}}" {% endif %}>
+          <label for="last_name">Last Name {% if response_1 %} <span class="red-text"> *(Ensure field is filled)</span> {% endif %} {% if response_2 %} <span class="red-text"> *(Ensure no dots (.) in this field)</span> {% endif %} {% if response_3 %} <span class="red-text"> *(This field should not begin with a number)</span> {% endif %}</label>
+        </div>
+      </div>
+	  
+	  <div class="row">
+	  <div class="input-field col s12">
+          <input id="username" type="text" class="validate" name="user_name" {% if signup_response %} value="{{values[2]}}" {% endif %}>
+          <label for="username">username {% if response_1 %} <span class="red-text"> *(Ensure field is filled)</span> {% endif %} {% if response_2 %} <span class="red-text"> *(Ensure no dots (.) in this field)</span> {% endif %} {% if response_3 %} <span class="red-text"> *(This field should not begin with a number)</span> {% endif %}</label>
+        </div>
+      </div>
+	  
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" name="reg_password" {% if signup_response %} value="{{values[3]}}" {% endif %}>
+          <label for="password">Password {% if response_1 %} <span class="red-text"> *(Ensure field is filled)</span> {% endif %} {% if response_4 %} <span class="red-text"> *(passwords do not match)</span> {% endif %}</label>
+        </div>
+		</div>
+		
+		<div class="row">
+        <div class="input-field col s12">
+          <input id="confirm_password" type="password" class="validate" name="confirm_password" {% if signup_response %} value="{{values[4]}}" {% endif %}>
+          <label for="confirm_password">confirm password {% if response_1 %} <span class="red-text"> *(Ensure field is filled)</span> {% endif %} {% if response_4 %} <span class="red-text"> *(passwords do not match)</span> {% endif %}</label>
+        </div>
+	 </div>
+	 
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" name="email" {% if signup_response %} value="{{values[5]}}" {% endif %}>
+          <label for="email">Email {% if response_1 %} <span class="red-text"> *(Ensure field is filled)</span> {% endif %}</label>
+        </div>
+      </div>
+	  
+	  
+	  <div class="row">
+        <div class="input-field col s12 m4 l4">
+          <input id="submit" type="submit" class="validate" value="Sign Up" name="submit_sign_up">
+        </div>
+      </div>
+   
+    </form>
+  </div>
+	  
+	  
+	 </div><!--End of signUp tab -->
+ 
+    </div>
+<!--End of login and signUp -->
+	
+  </div>
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  
+</body>
+</html>

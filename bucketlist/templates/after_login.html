@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>
+Bucketlist
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">      
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize.min.js"></script>
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+<h4 class="blue-text text-lighten-4">Bucketlist</h4>
+<div class="divider"></div>
+
+ <div class="card">
+ <div class="card-title>
+ <h4>Bucketlist</h4>
+ </div>
+    
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a class="active" href="#view">My bucketlists</a></li>
+        <li class="tab"><a  href="#create">Create bucketlist</a></li>
+ 
+      </ul>
+    </div>
+	
+	<!--view and create bucketlists -->
+    <div class="card-content grey lighten-4">
+     <div id="view"> <!--view bucketlists -->
+	 <b>No bucketlists have been created yet</b>
+	 </div>
+	 
+	 <div id="create"><!--create bucketlists -->
+	 
+	  <div class="row">
+    <form class="col s12" action="http://localhost:5000/create_bucketlist" method="POST">
+      
+	  
+	  <div class="row">
+	  <div class="input-field col s12">
+          <input id="bucketlist_name" type="text" class="validate" name="bucketlist_name">
+          <input id="hide" type="hidden"  value="" name="username">
+          <input id="hide" type="hidden"  value="" name="password">
+          <label for="bucketlist_name">Name of the bucketlist</label>
+        </div>
+      </div>
+	  
+	  <div class="row">
+        <div class="input-field col s12 m4 l4">
+          <input id="submit" type="submit" class="validate" value="create" name="create">
+          
+        </div>
+      </div>
+	  
+	  </form>
+	  </div>
+	 
+
+	 
+	  
+	  
+	  
+	  
+      </div>
+
+	
+  </div>
+<!--End of view and create bucketlists -->
+
+</div>
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+</body>
+</html>
